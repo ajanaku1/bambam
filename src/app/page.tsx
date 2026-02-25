@@ -6,8 +6,7 @@ import { pageTransition } from "@/lib/pageTransitions";
 import Navigation from "@/components/Navigation";
 import PageNavigation from "@/components/PageNavigation";
 import MobileNav from "@/components/MobileNav";
-import ScrollProgress from "@/components/ScrollProgress";
-import ScrollHint from "@/components/ScrollHint";
+import PageArrows from "@/components/PageArrows";
 import HeroPage from "@/page-components/HeroPage";
 import AboutPage from "@/page-components/AboutPage";
 import ExperiencePage from "@/page-components/ExperiencePage";
@@ -30,7 +29,6 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [normalizedScrollProgress, setNormalizedScrollProgress] = useState(0);
 
   const goToPage = useCallback((newPage: number) => {
     if (newPage < 0 || newPage >= TOTAL_PAGES || isTransitioning) return;
@@ -94,59 +92,6 @@ export default function Home() {
     return () => window.removeEventListener('navigate-to-projects', handleNavigateToProjects);
   }, [goToPage]);
 
-  // Mouse wheel navigation for desktop (horizontal swipe only)
-  useEffect(() => {
-    // Only enable on non-touch devices
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-
-    const SCROLL_THRESHOLD = 100;
-    const SCROLL_COOLDOWN = 800;
-    let accumulator = 0;
-    let isCooldown = false;
-
-    const handleWheel = (e: WheelEvent) => {
-      // Only use horizontal scroll (trackpad swipe or shift+scroll)
-      // Ignore vertical scroll completely
-      if (Math.abs(e.deltaX) < Math.abs(e.deltaY) && Math.abs(e.deltaY) > 0) {
-        return;
-      }
-      
-      const scrollDelta = e.deltaX;
-      if (scrollDelta === 0) return;
-      
-      if (isTransitioning || isCooldown) return;
-
-      accumulator += scrollDelta;
-      const progress = Math.max(0, Math.min(1, Math.abs(accumulator) / SCROLL_THRESHOLD));
-      setNormalizedScrollProgress(scrollDelta > 0 ? progress : 1 - progress);
-      
-      if (accumulator > SCROLL_THRESHOLD) {
-        isCooldown = true;
-        accumulator = 0;
-        setNormalizedScrollProgress(0);
-        goToPage(currentPage + 1);
-        setTimeout(() => { isCooldown = false; }, SCROLL_COOLDOWN);
-      }
-      
-      if (accumulator < -SCROLL_THRESHOLD) {
-        isCooldown = true;
-        accumulator = 0;
-        setNormalizedScrollProgress(0);
-        goToPage(currentPage - 1);
-        setTimeout(() => { isCooldown = false; }, SCROLL_COOLDOWN);
-      }
-    };
-
-    // Reset accumulator when page changes
-    if (isTransitioning) {
-      accumulator = 0;
-      setNormalizedScrollProgress(0);
-    }
-
-    window.addEventListener('wheel', handleWheel, { passive: true });
-    return () => window.removeEventListener('wheel', handleWheel);
-  }, [currentPage, isTransitioning, goToPage]);
-
   // Update URL hash without scrolling
   useEffect(() => {
     const pageId = pages[currentPage].id;
@@ -172,12 +117,6 @@ export default function Home() {
     <>
       <Navigation currentPage={currentPage} onPageChange={goToPage} />
 
-      <ScrollProgress
-        currentPage={currentPage}
-        totalPages={TOTAL_PAGES}
-        scrollProgress={normalizedScrollProgress}
-      />
-
       <main className="relative h-screen overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
@@ -195,6 +134,12 @@ export default function Home() {
         </AnimatePresence>
       </main>
 
+      <PageArrows
+        currentPage={currentPage}
+        totalPages={TOTAL_PAGES}
+        onPageChange={goToPage}
+      />
+
       <PageNavigation
         currentPage={currentPage}
         totalPages={TOTAL_PAGES}
@@ -206,8 +151,6 @@ export default function Home() {
         totalPages={TOTAL_PAGES}
         onPageChange={goToPage}
       />
-
-      <ScrollHint />
     </>
   );
 }
