@@ -14,7 +14,7 @@ export default function PageNavigation({
   onPageChange,
 }: PageNavigationProps) {
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3">
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 hidden lg:flex items-center gap-3">
       {Array.from({ length: totalPages }, (_, i) => (
         <button
           key={i}
@@ -27,7 +27,7 @@ export default function PageNavigation({
           aria-label={`Go to page ${i + 1}`}
           aria-current={currentPage === i ? "page" : undefined}
         >
-          <span className="absolute left-full ml-3 px-2 py-1 bg-card border border-border rounded text-xs text-muted opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-card border border-border rounded text-xs text-muted opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
             {getPageLabel(i)}
           </span>
         </button>
