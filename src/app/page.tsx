@@ -99,10 +99,10 @@ export default function Home() {
     // Only enable on non-touch devices
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
-    const SCROLL_THRESHOLD = 150; // Increased from 50 to reduce sensitivity
-    const SCROLL_COOLDOWN = 600; // Increased from 400ms to prevent rapid navigation
-    let lastScrollTime = 0;
+    const SCROLL_THRESHOLD = 100;
+    const SCROLL_COOLDOWN = 800;
     let accumulator = 0;
+    let isCooldown = false;
 
     const handleWheel = (e: WheelEvent) => {
       // Only use horizontal scroll (trackpad swipe or shift+scroll)
@@ -114,27 +114,26 @@ export default function Home() {
       const scrollDelta = e.deltaX;
       if (scrollDelta === 0) return;
       
-      if (isTransitioning) return;
-
-      const now = Date.now();
-      if (now - lastScrollTime < SCROLL_COOLDOWN) return;
+      if (isTransitioning || isCooldown) return;
 
       accumulator += scrollDelta;
       const progress = Math.max(0, Math.min(1, Math.abs(accumulator) / SCROLL_THRESHOLD));
       setNormalizedScrollProgress(scrollDelta > 0 ? progress : 1 - progress);
       
       if (accumulator > SCROLL_THRESHOLD) {
-        lastScrollTime = now;
-        goToPage(currentPage + 1);
+        isCooldown = true;
         accumulator = 0;
         setNormalizedScrollProgress(0);
+        goToPage(currentPage + 1);
+        setTimeout(() => { isCooldown = false; }, SCROLL_COOLDOWN);
       }
       
       if (accumulator < -SCROLL_THRESHOLD) {
-        lastScrollTime = now;
-        goToPage(currentPage - 1);
+        isCooldown = true;
         accumulator = 0;
         setNormalizedScrollProgress(0);
+        goToPage(currentPage - 1);
+        setTimeout(() => { isCooldown = false; }, SCROLL_COOLDOWN);
       }
     };
 
