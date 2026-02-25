@@ -99,8 +99,8 @@ export default function Home() {
     // Only enable on non-touch devices
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
-    const SCROLL_THRESHOLD = 50;
-    const SCROLL_COOLDOWN = 400;
+    const SCROLL_THRESHOLD = 150; // Increased from 50 to reduce sensitivity
+    const SCROLL_COOLDOWN = 600; // Increased from 400ms to prevent rapid navigation
     let lastScrollTime = 0;
     let accumulator = 0;
 
