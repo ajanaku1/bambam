@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Menu, Close } from "@/components/Icons";
 
 const links = [
@@ -75,12 +74,12 @@ export default function Navigation() {
           }}
           className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
-          <Image
-            src="/pfp.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${process.env.__NEXT_ROUTER_BASEPATH || ""}/pfp.png`}
             alt="Bambam"
             width={28}
             height={28}
-            priority
             className="rounded-full object-cover ring-1 ring-border"
           />
           <span className="font-mono text-sm tracking-tight text-foreground">
