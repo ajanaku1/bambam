@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ease, stagger } from "@/lib/motion";
-import { Dot } from "@/components/Icons";
+import { motion } from "framer-motion";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 const skillGroups = [
   {
@@ -37,78 +36,57 @@ const skillGroups = [
     ],
   },
   {
-    label: "Backend & Systems",
+    label: "Backend & Infrastructure",
     skills: [
       "Node.js / Express",
-      "Python (stdlib)",
+      "Python",
       "Firebase / Firestore",
       "Vercel Serverless",
       "REST API Design",
     ],
   },
-  {
-    label: "Growth & Community",
-    skills: [
-      "Community Campaign Strategy",
-      "Crypto Twitter (CT) Networks",
-      "Product Launch GTM",
-      "Community Mobilization",
-      "Network Effects & Growth",
-    ],
-  },
-  {
-    label: "Product & Delivery",
-    skills: [
-      "MVP Scoping",
-      "User-Centric Design",
-      "Technical Documentation",
-      "Agile Workflows",
-      "Collaborative Development",
-    ],
-  },
 ];
 
 export default function Skills() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="skills" className="py-24 px-6">
-      <div ref={ref} className="max-w-5xl mx-auto">
+    <section id="skills" className="py-20 sm:py-28 px-6">
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease }}
-          className="max-w-3xl mb-16"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.3, ease }}
+          className="mb-12"
         >
-          <p className="font-mono text-sm text-accent mb-4">Skills</p>
-          <h2 className="text-3xl font-bold tracking-tight mb-4">
+          <p className="font-mono text-sm text-accent mb-3">Skills</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             What I work with.
           </h2>
-          <p className="text-muted leading-relaxed">
-            Organized by domain, not alphabetically. I intentionally explore
-            different areas — each skill group represents a capability I&apos;ve
-            shipped production code or driven real impact with.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {skillGroups.map((group, i) => (
             <motion.div
               key={group.label}
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={stagger(i)}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.3, ease, delay: i * 0.04 }}
+              className="p-5 rounded-lg border border-border bg-card"
             >
               <h3 className="font-mono text-xs text-accent tracking-wide mb-4 uppercase">
                 {group.label}
               </h3>
               <ul className="space-y-2">
                 {group.skills.map((skill) => (
-                  <li key={skill} className="flex items-start gap-2 text-sm text-muted">
-                    <span className="text-accent mt-1 shrink-0" aria-hidden="true">
-                      <Dot size={8} />
-                    </span>
+                  <li
+                    key={skill}
+                    className="flex items-center gap-2.5 text-sm text-muted"
+                  >
+                    <span
+                      className="w-1 h-1 rounded-full bg-accent/60 shrink-0"
+                      aria-hidden="true"
+                    />
                     {skill}
                   </li>
                 ))}
