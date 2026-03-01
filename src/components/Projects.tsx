@@ -7,6 +7,15 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const projects = [
   {
+    tag: "Web3 / DeFi",
+    title: "AlphaArena",
+    description:
+      "Gamified copy-trading platform for Solana. Weekly Trading Royale competitions, one-click copy of top Pacifica DEX traders, live leaderboards, and referral rewards.",
+    stack: ["Next.js", "TypeScript", "Prisma", "Tailwind", "Pacifica API", "React Query"],
+    demo: "https://alpha-arena-rho.vercel.app/",
+    github: "https://github.com/ajanaku1/AlphaArena",
+  },
+  {
     tag: "AI Engineering",
     title: "HealthHarmony",
     description:
@@ -23,15 +32,6 @@ const projects = [
     stack: ["React", "TypeScript", "Solana Web3.js", "Express", "Recharts", "Graphology"],
     demo: "https://trace-wheat.vercel.app",
     github: "https://github.com/ajanaku1/trace101",
-  },
-  {
-    tag: "Web3 / DeFi",
-    title: "AlphaArena",
-    description:
-      "Gamified copy-trading platform for Solana. Weekly Trading Royale competitions, one-click copy of top Pacifica DEX traders, live leaderboards, and referral rewards.",
-    stack: ["Next.js", "TypeScript", "Prisma", "Tailwind", "Pacifica API", "React Query"],
-    demo: "https://alpha-arena-rho.vercel.app/",
-    github: "https://github.com/ajanaku1/AlphaArena",
   },
   {
     tag: "Web3 / Solana",
