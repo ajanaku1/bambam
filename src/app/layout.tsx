@@ -20,7 +20,8 @@ export const metadata: Metadata = {
   description:
     "I build AI-powered products at the intersection of crypto and full-stack engineering. From multimodal AI systems to on-chain privacy analysis — I ship products that solve real problems.",
   icons: {
-    icon: "/pfp.png",
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
   alternates: {
     canonical: SITE_URL,
@@ -73,9 +74,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/pfp.png?v=2" type="image/png" />
-        <link rel="shortcut icon" href="/pfp.png?v=2" type="image/png" />
-        <link rel="apple-touch-icon" href="/pfp.png?v=2" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <Script
           id="structured-data"
           type="application/ld+json"
