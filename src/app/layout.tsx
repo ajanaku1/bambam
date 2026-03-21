@@ -20,7 +20,7 @@ const SITE_URL = "https://yourdomain.com"; // TODO: Replace with your actual dom
 export const metadata: Metadata = {
   title: "Bambam — AI & Crypto Product Engineer",
   description:
-    "I build AI-powered products at the intersection of crypto and full-stack engineering. From multimodal AI systems to on-chain privacy analysis — I ship products that solve real problems.",
+    "I build AI-powered products across DeFi, Web3, and mobile. From multimodal AI systems to Solidity smart contracts and React Native dApps.",
   icons: {
     icon: `${basePath}/favicon.png`,
     apple: `${basePath}/apple-touch-icon.png`,
@@ -57,13 +57,15 @@ const jsonLd = {
   "email": "mailto:mykdahunsi@gmail.com",
   "knowsAbout": [
     "Artificial Intelligence",
-    "Machine Learning",
-    "Crypto",
-    "Web3",
+    "Google Gemini",
+    "OpenAI",
+    "Solana",
+    "Solidity",
+    "DeFi",
+    "React Native",
     "React",
     "TypeScript",
     "Next.js",
-    "Solana",
     "Full-Stack Development",
   ],
 };

@@ -11,7 +11,7 @@ const fadeUp = {
 };
 
 const stats = [
-  { value: "6+", label: "Projects shipped" },
+  { value: "7+", label: "Projects shipped" },
   { value: "$750K", label: "Raise enabled" },
   { value: "2nd", label: "Seedify Hackathon" },
   { value: "3+", label: "Years building" },
@@ -38,7 +38,7 @@ export default function Hero() {
             I build AI-powered
             <br />
             products{" "}
-            <span className="text-muted">that ship.</span>
+            <span className="bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent">that ship.</span>
           </motion.h1>
 
           <motion.p
@@ -46,8 +46,8 @@ export default function Hero() {
             transition={{ duration: 0.3, ease, delay: 0.1 }}
             className="text-lg text-muted max-w-lg leading-relaxed mb-8"
           >
-            From multimodal AI systems to on-chain privacy analysis — I
-            architect and ship at the intersection of AI and crypto.
+            From multimodal AI systems to Solidity smart contracts
+            and mobile dApps. Full-stack across AI, DeFi, and Web3.
           </motion.p>
 
           <motion.div

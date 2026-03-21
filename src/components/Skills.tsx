@@ -6,42 +6,45 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const skillGroups = [
   {
-    label: "AI & Machine Learning",
+    label: "AI Integration",
     skills: [
       "Google Gemini (Flash + Pro)",
+      "OpenAI API",
       "Multimodal AI (Vision, Audio, Video)",
       "Function Calling & Structured Output",
-      "Streaming Responses (SSE)",
       "Prompt Engineering",
     ],
   },
   {
-    label: "Crypto & Web3",
+    label: "Blockchain & Web3",
     skills: [
-      "Solana Web3.js",
-      "On-chain Analysis",
-      "Wallet Privacy & Security",
+      "Solana Web3.js & Anchor",
+      "Solidity & Hardhat",
+      "Ethers.js & EVM",
+      "Tether WDK",
+      "Zama fhEVM (FHE)",
       "DeFi Protocol Integration",
-      "Token Economics",
     ],
   },
   {
-    label: "Frontend",
+    label: "Frontend & Mobile",
     skills: [
-      "React / Next.js",
+      "React / Next.js / Vite",
+      "React Native & Expo",
       "TypeScript",
       "Tailwind CSS",
-      "Framer Motion",
-      "Responsive Design",
+      "Framer Motion & Radix UI",
+      "Recharts & Graph Visualization",
     ],
   },
   {
     label: "Backend & Infrastructure",
     skills: [
       "Node.js / Express",
-      "Python",
+      "Prisma & SQLite",
       "Firebase / Firestore",
-      "Vercel Serverless",
+      "WebSockets",
+      "Vercel & Docker",
       "REST API Design",
     ],
   },
