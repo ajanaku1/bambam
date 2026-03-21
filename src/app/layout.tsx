@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
+const basePath = process.env.GITHUB_PAGES === "true" ? "/bambam" : "";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,8 +22,8 @@ export const metadata: Metadata = {
   description:
     "I build AI-powered products at the intersection of crypto and full-stack engineering. From multimodal AI systems to on-chain privacy analysis — I ship products that solve real problems.",
   icons: {
-    icon: "/favicon.png",
-    apple: "/apple-touch-icon.png",
+    icon: `${basePath}/favicon.png`,
+    apple: `${basePath}/apple-touch-icon.png`,
   },
   alternates: {
     canonical: SITE_URL,
@@ -74,9 +76,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <Script
           id="structured-data"
           type="application/ld+json"
