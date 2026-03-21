@@ -73,9 +73,10 @@ export default function Skills() {
               key={group.label}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -3, borderColor: "var(--border-hover)" }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.3, ease, delay: i * 0.04 }}
-              className="p-5 rounded-lg border border-border bg-card"
+              className="p-5 rounded-lg border border-border bg-card hover:shadow-[0_4px_20px_rgba(16,185,129,0.06)] transition-shadow duration-300"
             >
               <h3 className="font-mono text-xs text-accent tracking-wide mb-4 uppercase">
                 {group.label}
@@ -84,10 +85,10 @@ export default function Skills() {
                 {group.skills.map((skill) => (
                   <li
                     key={skill}
-                    className="flex items-center gap-2.5 text-sm text-muted"
+                    className="flex items-center gap-2.5 text-sm text-muted hover:text-foreground transition-colors duration-150"
                   >
                     <span
-                      className="w-1 h-1 rounded-full bg-accent/60 shrink-0"
+                      className="w-1.5 h-1.5 rounded-full bg-accent/60 shrink-0"
                       aria-hidden="true"
                     />
                     {skill}

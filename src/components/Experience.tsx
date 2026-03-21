@@ -53,7 +53,7 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.3, ease, delay: i * 0.04 }}
-              className="py-6 border-b border-border last:border-b-0"
+              className="py-6 px-4 -mx-4 border-b border-border last:border-b-0 rounded-lg hover:bg-card/50 transition-colors duration-200"
             >
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
                 <div>

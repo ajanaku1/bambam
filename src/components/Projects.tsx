@@ -53,6 +53,12 @@ const projects = [
   },
 ];
 
+function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+  const rect = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+  e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+}
+
 export default function Projects() {
   return (
     <section id="projects" className="py-20 sm:py-28 px-6">
@@ -77,59 +83,65 @@ export default function Projects() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
+              whileHover={{ y: -4 }}
               transition={{ duration: 0.3, ease, delay: i * 0.05 }}
-              className="group rounded-lg border border-border bg-card p-6 sm:p-8 hover:border-border-hover hover:bg-card-hover transition-colors duration-200"
+              onMouseMove={handleMouseMove}
+              className="card-glow gradient-border group rounded-lg border border-border bg-card p-6 sm:p-8 hover:border-border-hover hover:bg-card-hover transition-all duration-200 hover:shadow-[0_8px_30px_rgba(16,185,129,0.08)]"
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs text-accent">{project.tag}</span>
-                  {"demo" in project && (
-                    <span className="font-mono text-xs px-2 py-0.5 rounded-full border border-accent/30 text-accent/80">
-                      Live
-                    </span>
-                  )}
-                </div>
-                <div className="flex items-center gap-1">
-                  {"demo" in project && (
-                    <a
-                      href={project.demo}
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-accent">{project.tag}</span>
+                    {"demo" in project && (
+                      <span className="font-mono text-xs px-2 py-0.5 rounded-full border border-accent/30 text-accent/80 group-hover:border-accent/60 group-hover:text-accent transition-colors">
+                        Live
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {"demo" in project && (
+                      <motion.a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        className="flex items-center justify-center w-10 h-10 rounded-full text-muted hover:text-accent hover:bg-accent/10 transition-colors"
+                        aria-label={`${project.title} live demo`}
+                      >
+                        <ExternalLink size={17} aria-hidden="true" />
+                      </motion.a>
+                    )}
+                    <motion.a
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-10 h-10 rounded-full text-muted hover:text-foreground hover:bg-border/30 transition-colors"
-                      aria-label={`${project.title} live demo`}
+                      whileHover={{ scale: 1.1 }}
+                      className="flex items-center justify-center w-10 h-10 rounded-full text-muted hover:text-accent hover:bg-accent/10 transition-colors"
+                      aria-label={`${project.title} source code`}
                     >
-                      <ExternalLink size={17} aria-hidden="true" />
-                    </a>
-                  )}
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-full text-muted hover:text-foreground hover:bg-border/30 transition-colors"
-                    aria-label={`${project.title} source code`}
-                  >
-                    <GitHub size={17} aria-hidden="true" />
-                  </a>
+                      <GitHub size={17} aria-hidden="true" />
+                    </motion.a>
+                  </div>
                 </div>
-              </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight mb-3">
-                {project.title}
-              </h3>
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight mb-3 group-hover:text-accent transition-colors duration-200">
+                  {project.title}
+                </h3>
 
-              <p className="text-muted text-sm sm:text-base leading-relaxed mb-6">
-                {project.description}
-              </p>
+                <p className="text-muted text-sm sm:text-base leading-relaxed mb-6">
+                  {project.description}
+                </p>
 
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="font-mono text-xs px-2.5 py-1 rounded-full bg-background text-muted"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-xs px-2.5 py-1 rounded-full bg-background text-muted border border-transparent group-hover:border-border transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.article>
           ))}
