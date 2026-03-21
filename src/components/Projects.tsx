@@ -7,6 +7,24 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const projects = [
   {
+    tag: "DeFi / Privacy",
+    title: "ShadowLend",
+    description:
+      "Privacy-preserving undercollateralized lending protocol. Encrypted credit scoring via Zama fhEVM ensures borrower data stays private on-chain, with Groq AI risk analysis and OpenZeppelin-secured smart contracts.",
+    stack: ["React", "Solidity", "Zama fhEVM", "Hardhat", "Ethers.js", "Tailwind"],
+    demo: "https://shadowlend-cyan.vercel.app",
+    github: "https://github.com/ajanaku1/ShadowLend",
+  },
+  {
+    tag: "Mobile / Web3",
+    title: "WellEarned",
+    description:
+      "Mobile habit-tracking app that proves healthy habits on-chain. Gemini AI coaching, Solana wallet integration for crypto rewards, background activity tracking, and real-time progress charts.",
+    stack: ["React Native", "Expo", "TypeScript", "Gemini AI", "Solana Web3.js", "Firebase"],
+    demo: "https://drive.google.com/drive/u/0/folders/13wCkqVVxTmc9IZ0yhPQlwVvhw-Iiir80",
+    github: "https://github.com/ajanaku1/WellEarned",
+  },
+  {
     tag: "Web3 / DeFi",
     title: "AlphaArena",
     description:
@@ -16,6 +34,15 @@ const projects = [
     github: "https://github.com/ajanaku1/AlphaArena",
   },
   {
+    tag: "AI / Web3",
+    title: "AgentVerse",
+    description:
+      "AI agent-to-agent marketplace where autonomous agents discover, negotiate, and trade skills for USDT. Built on Tether WDK with OpenAI-powered agent orchestration and real-time WebSocket communication.",
+    stack: ["Next.js", "TypeScript", "Tether WDK", "OpenAI", "WebSockets", "Tailwind"],
+    demo: "https://agentverse-cth8.onrender.com",
+    github: "https://github.com/ajanaku1/AgentVerse",
+  },
+  {
     tag: "AI Engineering",
     title: "HealthHarmony",
     description:
@@ -23,24 +50,6 @@ const projects = [
     stack: ["React", "TypeScript", "Gemini AI", "Firebase", "Remotion", "Tailwind"],
     demo: "https://health-harmony-pied.vercel.app",
     github: "https://github.com/ajanaku1/HealthHarmony",
-  },
-  {
-    tag: "Web3 / Crypto",
-    title: "Trace",
-    description:
-      "Solana wallet privacy analyzer that scores on-chain exposure across 6 categories. Maps social identity linkages, network relationships, and behavioral patterns that reveal wallet owners.",
-    stack: ["React", "TypeScript", "Solana Web3.js", "Express", "Recharts", "Graphology"],
-    demo: "https://trace-wheat.vercel.app",
-    github: "https://github.com/ajanaku1/trace101",
-  },
-  {
-    tag: "Web3 / Solana",
-    title: "ZombieYield",
-    description:
-      "Loyalty dashboard for Solana zombie token holders. Wallet-connected asset scanning, Torque-powered points engine, and claimable rewards for long-term holders.",
-    stack: ["React", "TypeScript", "Solana Web3.js", "Vite", "Torque SDK"],
-    demo: "https://zombieyield.vercel.app/",
-    github: "https://github.com/ajanaku1/ZombieYield",
   },
 ];
 
