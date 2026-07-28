@@ -24,72 +24,84 @@
   --side-width: 15.5rem;
 }
 
-/* ── Skip to content ── */
-.skip-to-content {
-  position: absolute;
-  left: -9999px;
-  z-index: 100;
-  padding: 0.75rem 1.5rem;
-  background: var(--foreground);
-  color: var(--background);
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: 8px;
-  text-decoration: none;
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
 
-.skip-to-content:focus {
-  left: 1rem;
-  top: 1rem;
+html {
+  background: var(--paper);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-4);
 }
 
-/* ── Focus ring ── */
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+body {
+  min-width: 20rem;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), "Avenir Next", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* ── iOS tap highlight ── */
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
+
 button,
 a,
 [role="button"] {
   -webkit-tap-highlight-color: transparent;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
 }
 
-html {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+.skip-to-content {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 100;
+  min-height: 44px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--ink);
+  color: var(--inverse);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-180%);
+  transition: transform var(--duration-fast) var(--ease-out);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  max-width: 100vw;
-  overflow-x: hidden;
+.skip-to-content:focus {
+  transform: translateY(0);
 }
 
 ::selection {
-  background: var(--accent);
-  color: white;
+  background: var(--signal);
+  color: var(--inverse);
 }
 
-/* ── Section spacing ── */
 section {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: var(--space-4);
 }
 
-/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -97,12 +109,5 @@ section {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-
-@media (hover: hover) {
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--muted-dim);
-  }
+  background: var(--line);
 }
