@@ -15,12 +15,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://yourdomain.com"; // TODO: Replace with your actual domain
+const SITE_URL = "https://ajanaku1.github.io/bambam";
 
 export const metadata: Metadata = {
-  title: "Bambam — AI & Crypto Product Engineer",
+  title: "Bambam — Product Engineer",
   description:
-    "I build AI-powered products across DeFi, Web3, and mobile. From multimodal AI systems to Solidity smart contracts and React Native dApps.",
+    "Product engineer building across applied AI, onchain systems, privacy, payments, and consumer software.",
   icons: {
     icon: `${basePath}/favicon.png`,
     apple: `${basePath}/apple-touch-icon.png`,
@@ -29,17 +29,17 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: "Bambam — AI & Crypto Product Engineer",
+    title: "Bambam — Product Engineer",
     description:
-      "I build AI-powered products at the intersection of crypto and full-stack engineering.",
+      "Selected products across applied AI, onchain systems, privacy, payments, and consumer software.",
     type: "website",
     url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bambam — AI & Crypto Product Engineer",
+    title: "Bambam — Product Engineer",
     description:
-      "I build AI-powered products at the intersection of crypto and full-stack engineering.",
+      "Selected products across applied AI, onchain systems, privacy, payments, and consumer software.",
   },
 };
 
@@ -47,7 +47,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Bambam",
-  "jobTitle": "AI & Crypto Product Engineer",
+  "jobTitle": "Product Engineer",
   "url": SITE_URL,
   "sameAs": [
     "https://github.com/ajanaku1",
@@ -57,16 +57,15 @@ const jsonLd = {
   "email": "mailto:mykdahunsi@gmail.com",
   "knowsAbout": [
     "Artificial Intelligence",
-    "Google Gemini",
-    "OpenAI",
     "Solana",
     "Solidity",
+    "Privacy Engineering",
+    "Payments",
     "DeFi",
-    "React Native",
     "React",
     "TypeScript",
     "Next.js",
-    "Full-Stack Development",
+    "Product Engineering",
   ],
 };
 
@@ -76,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <Script
           id="structured-data"
