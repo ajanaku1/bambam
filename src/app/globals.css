@@ -440,18 +440,6 @@ section {
   text-transform: uppercase;
 }
 
-@media (hover: hover) {
-  .index-links a:hover,
-  .action:hover,
-  .product-links a:hover {
-    transform: translateX(0.25rem);
-  }
-
-  .product-entry:hover .product-body h3 {
-    transform: translateX(0.35rem);
-  }
-}
-
 .action:active,
 .product-links a:active {
   transform: scale(0.98);
@@ -627,12 +615,6 @@ section {
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-@media (hover: hover) {
-  .contact-links a:hover {
-    transform: translateX(0.35rem);
-  }
 }
 
 @media (max-width: 70rem) {
