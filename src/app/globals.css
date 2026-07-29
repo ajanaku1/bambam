@@ -778,7 +778,12 @@ section {
   }
 
   .results-ledger > div {
-    grid-template-columns: 6rem minmax(0, 1fr);
+    grid-template-columns: 8.75rem minmax(0, 1fr);
+  }
+
+  .results-ledger dt {
+    padding-inline: var(--space-3);
+    overflow-wrap: anywhere;
   }
 
   .practice-section {

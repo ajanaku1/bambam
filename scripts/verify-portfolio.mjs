@@ -61,6 +61,7 @@ assert.ok(
   !source.includes('@import "tailwindcss"'),
   "The plain CSS portfolio must not depend on Tailwind import resolution",
 );
+expectText(source, "grid-template-columns: 8.75rem minmax(0, 1fr)");
 
 [
   /transition-all/,
