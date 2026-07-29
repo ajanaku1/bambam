@@ -1,6 +1,6 @@
 import { practiceAreas } from "@/data/portfolio";
 
-export default function PracticeSection() {
+export default function PracticeSection(): React.JSX.Element {
   return (
     <section className="practice-section" id="practice" aria-labelledby="practice-title">
       <header>

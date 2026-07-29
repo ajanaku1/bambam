@@ -1,6 +1,6 @@
 import { products, type Product } from "@/data/portfolio";
 
-function ProductLinks({ product }: { product: Product }) {
+function ProductLinks({ product }: { product: Product }): React.JSX.Element {
   return (
     <div className="product-links" aria-label={`${product.title} links`}>
       {product.demo ? (
@@ -15,7 +15,7 @@ function ProductLinks({ product }: { product: Product }) {
   );
 }
 
-function ProductFacts({ product }: { product: Product }) {
+function ProductFacts({ product }: { product: Product }): React.JSX.Element {
   return (
     <aside className="product-facts" aria-label={`${product.title} summary`}>
       <strong>{product.statement}</strong>
@@ -30,7 +30,7 @@ function ProductFacts({ product }: { product: Product }) {
   );
 }
 
-function ProductEntry({ product }: { product: Product }) {
+function ProductEntry({ product }: { product: Product }): React.JSX.Element {
   return (
     <article className="product-entry">
       <span className="product-index" aria-hidden="true">{product.index}</span>
@@ -45,7 +45,7 @@ function ProductEntry({ product }: { product: Product }) {
   );
 }
 
-export default function ProductRegister() {
+export default function ProductRegister(): React.JSX.Element {
   return (
     <section className="products-section" id="products" aria-labelledby="products-title">
       <header className="section-heading">

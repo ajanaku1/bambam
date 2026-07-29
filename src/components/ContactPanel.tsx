@@ -1,19 +1,28 @@
 import { contactLinks } from "@/data/portfolio";
 
-function ContactLinks() {
+function ContactLinks(): React.JSX.Element {
   return (
     <nav className="contact-links" aria-label="Contact links">
-      {contactLinks.map((link) => (
-        <a key={link.label} href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
-          <span>{link.label}</span>
-          <strong>{link.value}</strong>
-        </a>
-      ))}
+      {contactLinks.map((link) => {
+        const isExternal = link.href.startsWith("http");
+
+        return (
+          <a
+            key={link.label}
+            href={link.href}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noreferrer" : undefined}
+          >
+            <span>{link.label}</span>
+            <strong>{link.value}</strong>
+          </a>
+        );
+      })}
     </nav>
   );
 }
 
-export default function ContactPanel() {
+export default function ContactPanel(): React.JSX.Element {
   return (
     <section className="contact-section" id="contact" aria-labelledby="contact-title">
       <div>

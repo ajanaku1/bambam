@@ -5,7 +5,7 @@ import ProductRegister from "@/components/ProductRegister";
 import ResultsLedger from "@/components/ResultsLedger";
 import SideIndex from "@/components/SideIndex";
 
-export default function Home() {
+export default function Home(): React.JSX.Element {
   return (
     <div className="portfolio-shell">
       <SideIndex />

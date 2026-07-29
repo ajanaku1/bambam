@@ -1,6 +1,6 @@
 import { recordedResults } from "@/data/portfolio";
 
-export default function ResultsLedger() {
+export default function ResultsLedger(): React.JSX.Element {
   return (
     <section className="results-section" id="results" aria-labelledby="results-title">
       <header className="results-heading">

@@ -9,7 +9,9 @@ function collectSourceFiles(directoryUrl) {
     if (entry.isDirectory()) {
       return collectSourceFiles(entryUrl);
     }
-    return entry.name.endsWith(".tsx") || entry.name.endsWith(".css")
+    return entry.name.endsWith(".ts") ||
+      entry.name.endsWith(".tsx") ||
+      entry.name.endsWith(".css")
       ? [entryUrl]
       : [];
   });
@@ -50,6 +52,7 @@ const source = readSource();
   "Privacy and payments",
   "Consumer products",
   "data-section-link",
+  "scroll-behavior: auto",
 ].forEach((text) => expectText(source, text));
 
 assert.ok(!source.includes("WellEarned"), "WellEarned must be replaced by Zalary");

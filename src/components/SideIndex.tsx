@@ -10,7 +10,7 @@ const navigationItems = [
   { number: "04", id: "contact", label: "Contact" },
 ];
 
-function useActiveSection() {
+function useActiveSection(): string {
   const [activeSection, setActiveSection] = useState("positioning");
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function useActiveSection() {
   return activeSection;
 }
 
-function IndexLinks({ activeSection }: { activeSection: string }) {
+function IndexLinks({ activeSection }: { activeSection: string }): React.JSX.Element {
   return (
     <ol className="index-links">
       {navigationItems.map((item) => (
@@ -50,7 +50,7 @@ function IndexLinks({ activeSection }: { activeSection: string }) {
   );
 }
 
-export default function SideIndex() {
+export default function SideIndex(): React.JSX.Element {
   const activeSection = useActiveSection();
 
   return (

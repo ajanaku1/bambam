@@ -1,4 +1,4 @@
-function WorkingNotes() {
+function WorkingNotes(): React.JSX.Element {
   return (
     <aside className="positioning-notes" aria-label="Working approach">
       <div>
@@ -15,7 +15,7 @@ function WorkingNotes() {
   );
 }
 
-export default function Positioning() {
+export default function Positioning(): React.JSX.Element {
   return (
     <section className="positioning stage" id="positioning" aria-labelledby="positioning-title">
       <div className="positioning-main">
