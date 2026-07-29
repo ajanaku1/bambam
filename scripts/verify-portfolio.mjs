@@ -57,6 +57,10 @@ assert.ok(
   !source.includes("AI & Crypto Product Engineer"),
   "The portfolio must not use the narrow AI/crypto title",
 );
+assert.ok(
+  !source.includes('@import "tailwindcss"'),
+  "The plain CSS portfolio must not depend on Tailwind import resolution",
+);
 
 [
   /transition-all/,
