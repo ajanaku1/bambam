@@ -14,6 +14,17 @@ export interface Product {
 export const products: Product[] = [
   {
     index: "01",
+    title: "Chit",
+    category: "Private funding / Onchain systems / Trading infra",
+    description:
+      "A private funding layer for trading fleets. A trader funds many wallets through Chit instead of from one main wallet, so no transaction joins the main wallet to a fleet account. Live on Robinhood Chain testnet with sponsored buys through a real Uniswap v4 pool.",
+    statement: "Private, not anonymous.",
+    stack: "Solidity / TypeScript / ERC-4337 / Uniswap v4",
+    github: "https://github.com/ajanaku1/chit",
+    demo: "https://chit.tools",
+  },
+  {
+    index: "02",
     title: "Zalary",
     category: "Confidential payroll / Solana / Payments",
     description:
@@ -24,7 +35,7 @@ export const products: Product[] = [
     demo: "https://zalary.vercel.app",
   },
   {
-    index: "02",
+    index: "03",
     title: "ShadowLend",
     category: "Privacy / Lending / Onchain systems",
     description:
@@ -35,7 +46,7 @@ export const products: Product[] = [
     demo: "https://shadowlend-cyan.vercel.app",
   },
   {
-    index: "03",
+    index: "04",
     title: "Punt",
     category: "Peer systems / Payments / On-device AI",
     description:
@@ -48,7 +59,7 @@ export const products: Product[] = [
     event: "Tether Developers Cup",
   },
   {
-    index: "04",
+    index: "05",
     title: "Hanami",
     category: "Applied AI / Attestation / Access",
     description:
@@ -61,7 +72,7 @@ export const products: Product[] = [
     event: "0G Zero Cup",
   },
   {
-    index: "05",
+    index: "06",
     title: "InferMart",
     category: "Distributed inference / Metering / Settlement",
     description:
@@ -73,7 +84,7 @@ export const products: Product[] = [
     event: "QVAC Hackathon",
   },
   {
-    index: "06",
+    index: "07",
     title: "Headhunter",
     category: "Autonomous execution / Open source / x402",
     description:

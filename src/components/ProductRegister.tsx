@@ -51,7 +51,7 @@ export default function ProductRegister(): React.JSX.Element {
       <header className="section-heading">
         <p className="eyebrow">01 / Selected products</p>
         <h2 id="products-title">
-          Six products across private money, applied intelligence, and useful software.
+          Seven products across private money, applied intelligence, and useful software.
         </h2>
       </header>
       <div className="product-register">
