@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navigationItems = [
@@ -62,9 +63,14 @@ export default function SideIndex(): React.JSX.Element {
       <nav aria-label="Portfolio sections">
         <IndexLinks activeSection={activeSection} />
       </nav>
-      <p className="index-scope">
-        Applied AI, onchain systems, privacy and payments, consumer products.
-      </p>
+      <div className="index-footer">
+        <Link className="index-meet" href="/meet-the-dev">
+          Meet the dev <span aria-hidden="true">→</span>
+        </Link>
+        <p className="index-scope">
+          Applied AI, onchain systems, privacy and payments, consumer products.
+        </p>
+      </div>
     </aside>
   );
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { basePath } from "@/lib/base-path";
 import "./globals.css";
-
-const basePath = process.env.GITHUB_PAGES === "true" ? "/bambam" : "";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

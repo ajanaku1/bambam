@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function WorkingNotes(): React.JSX.Element {
   return (
     <aside className="positioning-notes" aria-label="Working approach">
@@ -28,6 +30,7 @@ export default function Positioning(): React.JSX.Element {
         </p>
         <div className="positioning-actions">
           <a className="action action-primary" href="#products">Review selected products</a>
+          <Link className="action" href="/meet-the-dev">Meet the dev</Link>
           <a className="action action-secondary" href="mailto:mykdahunsi@gmail.com">Email Bambam</a>
         </div>
       </div>

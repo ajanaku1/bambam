@@ -1,26 +1,4 @@
-import { contactLinks } from "@/data/portfolio";
-
-function ContactLinks(): React.JSX.Element {
-  return (
-    <nav className="contact-links" aria-label="Contact links">
-      {contactLinks.map((link) => {
-        const isExternal = link.href.startsWith("http");
-
-        return (
-          <a
-            key={link.label}
-            href={link.href}
-            target={isExternal ? "_blank" : undefined}
-            rel={isExternal ? "noreferrer" : undefined}
-          >
-            <span>{link.label}</span>
-            <strong>{link.value}</strong>
-          </a>
-        );
-      })}
-    </nav>
-  );
-}
+import ContactLinks from "@/components/ContactLinks";
 
 export default function ContactPanel(): React.JSX.Element {
   return (
@@ -32,7 +10,7 @@ export default function ContactPanel(): React.JSX.Element {
           For product engineering roles, collaborations, or a technical product that needs a clear path from idea to working system.
         </p>
       </div>
-      <ContactLinks />
+      <ContactLinks label="Contact links" />
     </section>
   );
 }
